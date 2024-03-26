@@ -2,17 +2,19 @@ import javax.swing.ImageIcon;
 
 public class Food extends Entity {
 
-  private final int width = 640, height = 480;
+  private int boardWidth, boardHeight;
 
-  Food() {
+  // Food() {
+  //   initFood();
+  //   randomFood();
+  // }
+
+  Food(int boardWidth, int boardHeight) {
+    this.boardWidth = boardWidth;
+    this.boardHeight = boardHeight;
     initFood();
     randomFood();
   }
-
-  //   Food(int x, int y) {
-  //     super(x, y);
-  //     initFood();
-  //   }
 
   private void initFood() {
     ImageIcon icon = new ImageIcon(getClass().getResource("/img/food.png"));
@@ -20,8 +22,8 @@ public class Food extends Entity {
   }
 
   public void randomFood() {
-    int currX = (int) (Math.random() * 1000) % width;
-    int cuurY = (int) (Math.random() * 1000) % height;
+    int currX = (int) (Math.random() * 10000) % boardWidth;
+    int cuurY = (int) (Math.random() * 10000) % boardHeight;
     setX(currX / 32 * 32);
     setY(cuurY / 32 * 32);
   }

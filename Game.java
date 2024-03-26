@@ -8,7 +8,8 @@ public class Game extends JFrame {
   }
 
   public void initGame() {
-    Board b = new Board();
+    // System.out.println((1845 % 640) / 32 * 32);
+    Board b = new Board(this.getWidth(), this.getHeight());
     add(b);
     setSize(640, 480);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
