@@ -1,20 +1,11 @@
-import java.awt.Image;
+package Entity;
+
+import java.awt.image.BufferedImage;
 
 public class Entity {
 
   private int x, y;
-  private Image image;
-
-  Entity() {}
-
-  Entity(int x, int y) {
-    this.x = x;
-    this.y = y;
-  }
-
-  public void setImage(Image image) {
-    this.image = image;
-  }
+  private BufferedImage image;
 
   public void setX(int x) {
     this.x = x;
@@ -32,7 +23,11 @@ public class Entity {
     return y;
   }
 
-  public Image getImage() {
+  public void setImage(BufferedImage image) {
+    this.image = image;
+  }
+
+  public BufferedImage getImage() {
     return image;
   }
 }
