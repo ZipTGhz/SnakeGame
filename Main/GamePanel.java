@@ -9,16 +9,22 @@ import javax.swing.JPanel;
 public class GamePanel extends JPanel implements Runnable {
 
   private final long oneBillionNano = (int) 1e9;
-  private final int SPEED = 3;
+
+  private Layer layer = new Layer(this);
   private Thread gameThread;
   private KeyHandle keyH = new KeyHandle();
-  public SnakeManager snake = new SnakeManager(this, keyH);
-  public TitleManager tm = new TitleManager(this);
+
+  public boolean gameOver = false;
+  public boolean isPause = false;
+  public int score = 0;
+  public final int SPEED = 5;
   public final int LEFT = 1, RIGHT = 2, UP = 3, DOWN = 4;
   public final int SIZE = 64;
+
+  public SnakeManager snake = new SnakeManager(this, keyH);
+  public TitleManager tm = new TitleManager(this);
   public CollisionChecker cChecker = new CollisionChecker(this);
   public FoodSpawner fSpawner = new FoodSpawner(this);
-  public boolean gameOver = false;
 
   public GamePanel() {
     this.setDoubleBuffered(true);
@@ -55,5 +61,6 @@ public class GamePanel extends JPanel implements Runnable {
     tm.draw(g2);
     fSpawner.draw(g2);
     snake.draw(g2);
+    layer.draw(g2);
   }
 }

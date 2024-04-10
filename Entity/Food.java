@@ -5,16 +5,15 @@ import javax.imageio.ImageIO;
 
 public class Food extends Entity {
 
+  public BufferedImage image;
+
   public Food() {
     initFoodImage();
   }
 
   private void initFoodImage() {
     try {
-      BufferedImage image = ImageIO.read(
-        getClass().getResourceAsStream("/img/food.png")
-      );
-      setImage(image);
+      image = ImageIO.read(getClass().getResourceAsStream("/img/food.png"));
     } catch (Exception e) {
       e.printStackTrace();
     }

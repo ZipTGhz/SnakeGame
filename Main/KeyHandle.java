@@ -7,6 +7,7 @@ public class KeyHandle implements KeyListener {
 
   private final int LEFT = 1, RIGHT = 2, UP = 3, DOWN = 4;
   public int direction = LEFT;
+  public boolean isPaused = false;
 
   @Override
   public void keyTyped(KeyEvent e) {}
@@ -22,9 +23,16 @@ public class KeyHandle implements KeyListener {
       direction = UP;
     } else if ((keyCode == KeyEvent.VK_S || keyCode == KeyEvent.VK_DOWN)) {
       direction = DOWN;
+    } else if (keyCode == KeyEvent.VK_P) {
+      isPaused = true;
     }
   }
 
   @Override
-  public void keyReleased(KeyEvent e) {}
+  public void keyReleased(KeyEvent e) {
+    int keyCode = e.getKeyCode();
+    if (keyCode == KeyEvent.VK_P) {
+      isPaused = false;
+    }
+  }
 }

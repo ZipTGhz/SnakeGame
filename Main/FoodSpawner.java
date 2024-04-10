@@ -24,14 +24,7 @@ public class FoodSpawner {
   }
 
   public void draw(Graphics2D g2) {
-    g2.drawImage(
-      food.getImage(),
-      food.getX(),
-      food.getY(),
-      gp.SIZE,
-      gp.SIZE,
-      null
-    );
+    g2.drawImage(food.image, food.getX(), food.getY(), gp.SIZE, gp.SIZE, null);
   }
 
   public boolean isAteFood() {
